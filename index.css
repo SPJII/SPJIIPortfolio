@@ -1,0 +1,522 @@
+
+body {
+    background-color: #0a171f;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    height: 300vh;
+    display: inline-block;
+    font-size: 1em;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+ canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; 
+        }
+
+.container {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "canvas canvas canvas"
+    "canvas canvas canvas"
+    "canvas canvas canvas";
+  margin: 0;
+  vertical-align: middle;
+  align-self: center
+}
+
+.canvas {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-area: canvas;
+}
+
+.main { grid-area: 2 / 2 / 5 / 5; 
+  border-radius: 20px;
+  background: #19557b;
+  
+}
+
+.pic { grid-area: 2 / 2 / 3 / 3; 
+  background: linear-gradient(145deg, #0d2d42, #0f364e);
+  box-shadow:  3px 3px 0px #0a2333,
+             -3px -3px 0px #004f82;
+  margin: 10px;
+  border-radius: 50px;
+ 
+}
+
+.info {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "name name name"
+    "github github github"
+    "email email email"
+    "phone phone phone"
+    "resume resume resume";
+  grid-area: 3 / 2 / 5 / 3;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-area: 3 / 2 / 5 / 3;
+  margin: 5px;
+}
+
+.name,.github,.phone,.resume{  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "jobIcon namePlate namePlate"
+    "jobIcon namePlate namePlate"
+    "jobIcon namePlate namePlate";
+  grid-area: name;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #003658, #002d4a);
+box-shadow:  3px 3px 2px #001522,
+             -3px -3px 2px #004f82;
+
+   margin: 10px;
+  padding: 10px;
+
+}
+
+
+.jobIcon,.emailIcon,.contactIcon,.downloadIcon,.githubIcon { grid-area: jobIcon; 
+margin: -10px -10px;
+}
+
+.namePlate,.contactMe,.downloadText,.githubText,.emailText { grid-area: namePlate;
+ margin: -3px;
+ font-size: 17px;
+  width: 150px;
+  height: 10px;
+}
+
+.email { display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "emailIcon emailText emailText"
+    "emailIcon emailText emailText"
+    "emailIcon emailText emailText";
+  grid-area: email;
+  border-radius: 10px;
+ background: linear-gradient(145deg, #247ab1, #2b92d3);
+box-shadow:  3px 3px 0px #10364f,
+             -3px -3px 0px #40daff;
+  padding: 15px 10px;
+  font-size: .9em;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.email:hover {
+     background: linear-gradient(145deg, #004774, #00558a);
+box-shadow:  3px 3px 2px #002034,
+             -3px -3px 2px #007ece;
+  margin: 8px;
+   font-size: 3em;
+   font-weight: bold;
+    }
+
+.email:active {
+  background: linear-gradient(145deg, #247ab1, #2b92d3);
+box-shadow:  3px 3px 0px #10364f,
+             -3px -3px 0px #40daff;
+  margin: 8px;
+  font-size: 3em;
+  font-weight: normal;
+    }
+
+.emailIcon { grid-area: emailIcon; }
+
+.emailText { grid-area: emailText; }
+
+.linkedin {display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "contactIcon contactMe contactMe"
+    "contactIcon contactMe contactMe"
+    "contactIcon contactMe contactMe";
+  grid-area: phone;
+    border-radius: 10px;
+ background: linear-gradient(145deg, #247ab1, #2b92d3);
+box-shadow:  3px 3px 0px #10364f,
+             -3px -3px 0px #40daff;
+  padding: 15px 10px;
+  font-size: .9em;
+  margin: 10px;
+  word-spacing: 60px;
+    border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.linkedin:hover {
+     background: linear-gradient(145deg, #004774, #00558a);
+box-shadow:  3px 3px 2px #002034,
+             -3px -3px 2px #007ece;
+  margin: 8px;
+   font-size: 3em;
+   font-weight: bold;
+    }
+
+.linkedin:active {
+  background: linear-gradient(145deg, #247ab1, #2b92d3);
+box-shadow:  3px 3px 0px #10364f,
+             -3px -3px 0px #40daff;
+  margin: 8px;
+  font-size: 3em;
+  font-weight: normal;
+    }
+
+.contactIcon { grid-area: contactIcon; }
+
+.contactMe { grid-area: contactMe; }
+
+
+.resume {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "downloadIcon downloadText downloadText"
+    "downloadIcon downloadText downloadText"
+    "downloadIcon downloadText downloadText";
+  grid-area: resume; 
+  border-radius: 100px;
+  background: linear-gradient(145deg, #003658, #002d4a);
+  box-shadow:  3px 3px 2px #001522,
+             -3px -3px 2px #004f82;
+
+  padding: 15px 10px;
+  font-size: .9em;
+  margin: 10px;
+  word-spacing: 60px;
+  border: none;
+  cursor: pointer;
+  font-weight: normal;
+
+}
+
+.resume:hover {
+     background: linear-gradient(145deg, #004774, #00558a);
+box-shadow:  3px 3px 2px #002034,
+             -3px -3px 2px #007ece;
+  margin: 8px;
+   font-size: 3em;
+   font-weight: bold;
+    }
+
+.resume:active {
+  background: linear-gradient(145deg, #003658, #002d4a);
+  box-shadow:  3px 3px 2px #001522,
+             -3px -3px 2px #004f82;
+  margin: 8px;
+  font-size: 3em;
+  font-weight: normal;
+    }
+
+.downloadIcon { grid-area: downloadIcon; }
+
+.downloadText { grid-area: downloadText;
+ color: white;
+}
+
+.github{ display: grid;
+  grid-template-columns: 1fr 1.1fr 0.9fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "githubIcon githubText githubText"
+    "githubIcon githubText githubText"
+    "githubIcon githubText githubText";
+  grid-area: github;
+  border-radius: 10px;
+ background: linear-gradient(145deg, #247ab1, #2b92d3);
+box-shadow:  3px 3px 0px #10364f,
+             -3px -3px 0px #40daff;
+  padding: 15px 10px;
+  font-size: .9em;
+  margin: 10px;
+   border: none;
+  cursor: pointer;
+  color: white;
+ 
+}
+
+.github:hover {
+     background: linear-gradient(145deg, #004774, #00558a);
+box-shadow:  3px 3px 2px #002034,
+             -3px -3px 2px #007ece;
+  margin: 8px;
+   font-size: 3em;
+   font-weight: bold;
+    }
+
+.github:active {
+  background: linear-gradient(145deg, #247ab1, #2b92d3);
+box-shadow:  3px 3px 0px #10364f,
+             -3px -3px 0px #40daff;
+  margin: 8px;
+  font-size: 3em;
+  font-weight: normal;
+    }
+
+.githubIcon { grid-area: githubIcon;
+}
+
+.githubText { grid-area: githubText; 
+   word-spacing: 60px;
+}
+
+.bio {  display: grid;
+ display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1.4fr 0.6fr 1fr 1fr 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "about about about"
+    "about about about"
+    "skills skills skills"
+    "skills skills skills"
+    "p1 p2 p3"
+    "p1 p2 p3"; 
+  grid-area: 2 / 3 / 5 / 5; 
+  border-radius: 15px;
+  background: #10364f;
+  box-shadow: inset 2px 2px 0px #0a2333,
+            inset -2px -2px 0px #16496b;
+
+  margin: 5px;
+}
+
+.p1 { 
+   display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". . ."
+    ". . ."
+    "p1n p1n p1n"; 
+  grid-area: p1; 
+  border-radius: 10px;
+  background: linear-gradient(145deg,   #1b5b84, #174d6f);
+  box-shadow:  2px 2px 0px #10364f,
+             -2px -2px 0px #2274a7;
+  margin-right: 3.5px;
+  margin-left: 7px;
+  margin-top: 3.5px;
+  margin-bottom: 7px;
+}
+
+.p2 { display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". . ."
+    ". . ."
+    "p2n p2n p2n"; 
+  grid-area: p2; 
+      border-radius: 10px;
+  background: linear-gradient(145deg,   #1b5b84, #174d6f);
+  box-shadow:  2px 2px 0px #10364f,
+             -2px -2px 0px #2274a7;
+  margin-right: 3.5px;
+  margin-left: 3.5px;
+  margin-top: 3.5px;
+  margin-bottom: 7px;
+}
+
+.p3 { 
+   display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". . ."
+    ". . ."
+    "p3n p3n p3n"; 
+  grid-area: p3; 
+     border-radius: 10px;
+  background: linear-gradient(145deg,   #1b5b84, #174d6f);
+  box-shadow:  2px 2px 0px #10364f,
+             -2px -2px 0px #2274a7;
+  margin-right: 7px;
+  margin-left: 3.5px;
+  margin-top: 3.5px;
+  margin-bottom: 7px;
+}
+
+.p1n { grid-area: p1n; 
+    border-radius: 5px;
+  background: linear-gradient(145deg, #003658, #002d4a);
+  box-shadow:  2px 2px 0px #001522,
+             -2px -2px 0px #004f82;
+   margin: 0px;
+}
+
+.p2n { grid-area: p2n;
+   border-radius: 5px;
+  background: linear-gradient(145deg, #003658, #002d4a);
+  box-shadow:  2px 2px 0px #001522,
+             -2px -2px 0px #004f82;
+   margin: 0px;
+}
+
+.p3n { grid-area: p3n;
+  border-radius: 5px;
+  background: linear-gradient(145deg, #003658, #002d4a);
+  box-shadow:  2px 2px 0px #001522,
+             -2px -2px 0px #004f82;
+   margin: 0px;
+}
+
+.p1i { grid-area: p1i; }
+
+.p2i { grid-area: p2i; }
+
+.p3i { grid-area: p3i; }
+
+.about { display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "aboutText aboutText clock"
+    "aboutText aboutText clock"
+    "aboutText aboutText ."; 
+  grid-area: about; 
+  border-radius: 10px;
+  background: linear-gradient(145deg,   #1b5b84, #174d6f);
+  box-shadow:  2px 2px 0px #10364f,
+             -2px -2px 0px #2274a7;
+  margin-right: 7px;
+  margin-left: 7px;
+  margin-top: 7px;
+  margin-bottom: 3.5px;
+}
+
+
+
+.clock { grid-area: clock; 
+  background: linear-gradient(145deg, #0d2d42, #0f364e);
+  box-shadow:  3px 3px 0px #0a2333,
+             -3px -3px 0px #004f82;
+  margin: 10px;
+    border-radius: 20px;
+    padding: 40px;
+   
+    display: inline-block;
+}
+
+.time {
+    font-size: 3em;
+    text-align: center;
+}
+
+.skills { isplay: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . ."
+    ". . ."
+    ". . .";
+  grid-area: skills;
+    border-radius: 10px;
+  background: linear-gradient(145deg,   #1b5b84, #174d6f);
+  box-shadow:  2px 2px 0px #10364f,
+             -2px -2px 0px #2274a7;
+  margin-right: 7px;
+  margin-left: 7px;
+  margin-top: 3.5px;
+  margin-bottom: 3.5px;
+}
+
+.lang {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "english spanish japanese"
+    ". . ."
+    ". . .";
+  grid-area: 5 / 2 / 6 / 5;
+}
+
+.english { grid-area: english; 
+  border-radius: 10px;
+ 
+  background: linear-gradient(145deg, #003658, #002d4a);
+  box-shadow:  2px 2px 0px #001522,
+             -2px -2px 0px #004f82;
+  margin-top: 6px;
+  margin-bottom: 0px;
+  margin-right: 3.5px;
+  margin-left: 7px;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.spanish { grid-area: spanish; 
+   border-radius: 10px;
+ 
+background: linear-gradient(145deg, #003658, #002d4a);
+box-shadow:  2px 2px 0px #001522,
+             -2px -2px 0px #004f82;
+   margin-top: 6px;
+  margin-bottom: 0px;
+  margin-right: 3.5px;
+  margin-left: 3.5px;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.japanese { grid-area: japanese; 
+   border-radius: 10px;
+  background: linear-gradient(145deg, #003658, #002d4a);
+  box-shadow:  2px 2px 0px #001522,
+             -2px -2px 0px #004f82;
+  margin-top: 6px;
+  margin-bottom: 0px;
+  margin-right: 7px;
+  margin-left: 3.5px;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+}
+
+
+
+
