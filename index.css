@@ -4,19 +4,20 @@ body {
     color: white;
     align-items: center;
     justify-content: center;
-    height: 300vh;
+    height: 1000px;
+    margin: 0;
     display: inline-block;
     font-size: 1em;
     font-family: 'Arial', sans-serif;
     text-align: center;
 }
 
- canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1; 
-        }
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; 
+}
 
 .container {  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -31,6 +32,7 @@ body {
   margin: 0;
   vertical-align: middle;
   align-self: center
+  
 }
 
 .canvas {  display: grid;
@@ -44,16 +46,30 @@ body {
 .main { grid-area: 2 / 2 / 5 / 5; 
   border-radius: 20px;
   background: #19557b;
-  
+  height: 1000px;
+  width: 1200px;
 }
 
-.pic { grid-area: 2 / 2 / 3 / 3; 
-  background: linear-gradient(145deg, #0d2d42, #0f364e);
-  box-shadow:  3px 3px 0px #0a2333,
-             -3px -3px 0px #004f82;
-  margin: 10px;
-  border-radius: 50px;
- 
+.pic{ grid-area: 2 / 2 / 3 / 3; 
+  box-shadow:  30px 30px 0px #0a2333,
+             -30px -30px 0px #2a7cb3;
+  margin: 15px;
+  margin-top: 60px;
+  margin-left: 60px;
+  border-radius:50%;
+  padding-right: 30px;
+  height: 250px;
+  width: 250px;
+  object-fit:cover;
+  background: linear-gradient(-45deg, #ff357a, #fff172);
+}
+
+.pic img {
+  border-radius: 45%;
+  padding-left: 10px;
+  padding-right: 32px;
+  height: 100%;
+  width: 100%;
 }
 
 .info {  display: grid;
@@ -72,6 +88,7 @@ body {
   grid-auto-flow: row;
   grid-area: 3 / 2 / 5 / 3;
   margin: 5px;
+  height: 600px;
 }
 
 .name,.github,.phone,.resume{  display: grid;
@@ -86,23 +103,29 @@ body {
   grid-area: name;
   border-radius: 10px;
   background: linear-gradient(145deg, #003658, #002d4a);
-box-shadow:  3px 3px 2px #001522,
-             -3px -3px 2px #004f82;
+  box-shadow:  3px 3px 0px #001522,
+             -3px -3px 0px #004f82;
 
-   margin: 10px;
+  margin: 10px;
   padding: 10px;
 
 }
 
 
 .jobIcon,.emailIcon,.contactIcon,.downloadIcon,.githubIcon { grid-area: jobIcon; 
-margin: -10px -10px;
+  margin: -10px -10px;
 }
 
 .namePlate,.contactMe,.downloadText,.githubText,.emailText { grid-area: namePlate;
- margin: -3px;
- font-size: 17px;
-  width: 150px;
+  margin: -3px;
+  font-size: 20px;
+  width: 130px;
+  height: 10px;
+}
+
+.namePlate {  
+  font-weight: bold;
+  width: 200px;
   height: 10px;
 }
 
@@ -117,8 +140,8 @@ margin: -10px -10px;
     "emailIcon emailText emailText";
   grid-area: email;
   border-radius: 10px;
- background: linear-gradient(145deg, #247ab1, #2b92d3);
-box-shadow:  3px 3px 0px #10364f,
+  background: linear-gradient(145deg, #247ab1, #2b92d3);
+  box-shadow:  3px 3px 0px #10364f,
              -3px -3px 0px #40daff;
   padding: 15px 10px;
   font-size: .9em;
@@ -126,25 +149,29 @@ box-shadow:  3px 3px 0px #10364f,
   border: none;
   cursor: pointer;
   color: white;
+  transition: transform 0.3s ease-in-out;
+  
 }
 
-.email:hover {
-     background: linear-gradient(145deg, #004774, #00558a);
-box-shadow:  3px 3px 2px #002034,
-             -3px -3px 2px #007ece;
+.email:hover, .github:hover, .linkedin:hover, .resume:hover {
+  background: linear-gradient(145deg, #004774, #00558a);
+  box-shadow:  3px 3px 0px #002034,
+             -3px -3px 0px #007ece;
   margin: 8px;
-   font-size: 3em;
-   font-weight: bold;
-    }
+  transform: scale(1.04);
+}
 
-.email:active {
+.email:active, .github:active, .linkedin:active, .resume:active {
   background: linear-gradient(145deg, #247ab1, #2b92d3);
-box-shadow:  3px 3px 0px #10364f,
+  box-shadow:  3px 3px 0px #10364f,
              -3px -3px 0px #40daff;
-  margin: 8px;
-  font-size: 3em;
-  font-weight: normal;
-    }
+  transform: scale(1.0);
+}
+
+input {
+  position: absolute;
+  left: -9999px;
+}
 
 .emailIcon { grid-area: emailIcon; }
 
@@ -161,35 +188,18 @@ box-shadow:  3px 3px 0px #10364f,
     "contactIcon contactMe contactMe";
   grid-area: phone;
     border-radius: 10px;
- background: linear-gradient(145deg, #247ab1, #2b92d3);
-box-shadow:  3px 3px 0px #10364f,
+  background: linear-gradient(145deg, #247ab1, #2b92d3);
+  box-shadow:  3px 3px 0px #10364f,
              -3px -3px 0px #40daff;
   padding: 15px 10px;
   font-size: .9em;
   margin: 10px;
   word-spacing: 60px;
-    border: none;
+  border: none;
   cursor: pointer;
   color: white;
+  transition: transform 0.3s ease-in-out;
 }
-
-.linkedin:hover {
-     background: linear-gradient(145deg, #004774, #00558a);
-box-shadow:  3px 3px 2px #002034,
-             -3px -3px 2px #007ece;
-  margin: 8px;
-   font-size: 3em;
-   font-weight: bold;
-    }
-
-.linkedin:active {
-  background: linear-gradient(145deg, #247ab1, #2b92d3);
-box-shadow:  3px 3px 0px #10364f,
-             -3px -3px 0px #40daff;
-  margin: 8px;
-  font-size: 3em;
-  font-weight: normal;
-    }
 
 .contactIcon { grid-area: contactIcon; }
 
@@ -208,36 +218,17 @@ box-shadow:  3px 3px 0px #10364f,
   grid-area: resume; 
   border-radius: 100px;
   background: linear-gradient(145deg, #003658, #002d4a);
-  box-shadow:  3px 3px 2px #001522,
-             -3px -3px 2px #004f82;
-
+  box-shadow:  3px 3px 0px #001522,
+             -3px -3px 0px #004f82;
   padding: 15px 10px;
   font-size: .9em;
   margin: 10px;
   word-spacing: 60px;
   border: none;
   cursor: pointer;
-  font-weight: normal;
-
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
 }
-
-.resume:hover {
-     background: linear-gradient(145deg, #004774, #00558a);
-box-shadow:  3px 3px 2px #002034,
-             -3px -3px 2px #007ece;
-  margin: 8px;
-   font-size: 3em;
-   font-weight: bold;
-    }
-
-.resume:active {
-  background: linear-gradient(145deg, #003658, #002d4a);
-  box-shadow:  3px 3px 2px #001522,
-             -3px -3px 2px #004f82;
-  margin: 8px;
-  font-size: 3em;
-  font-weight: normal;
-    }
 
 .downloadIcon { grid-area: downloadIcon; }
 
@@ -256,45 +247,29 @@ box-shadow:  3px 3px 2px #002034,
     "githubIcon githubText githubText";
   grid-area: github;
   border-radius: 10px;
- background: linear-gradient(145deg, #247ab1, #2b92d3);
-box-shadow:  3px 3px 0px #10364f,
+  background: linear-gradient(145deg, #247ab1, #2b92d3);
+  box-shadow:  3px 3px 0px #10364f,
              -3px -3px 0px #40daff;
   padding: 15px 10px;
   font-size: .9em;
   margin: 10px;
-   border: none;
+  border: none;
   cursor: pointer;
   color: white;
+  transition: transform 0.3s ease-in-out;
  
 }
 
-.github:hover {
-     background: linear-gradient(145deg, #004774, #00558a);
-box-shadow:  3px 3px 2px #002034,
-             -3px -3px 2px #007ece;
-  margin: 8px;
-   font-size: 3em;
-   font-weight: bold;
-    }
-
-.github:active {
-  background: linear-gradient(145deg, #247ab1, #2b92d3);
-box-shadow:  3px 3px 0px #10364f,
-             -3px -3px 0px #40daff;
-  margin: 8px;
-  font-size: 3em;
-  font-weight: normal;
-    }
 
 .githubIcon { grid-area: githubIcon;
 }
 
 .githubText { grid-area: githubText; 
-   word-spacing: 60px;
+  word-spacing: 60px;
 }
 
 .bio {  display: grid;
- display: grid; 
+  display: grid; 
   grid-template-columns: 1fr 1fr 1fr; 
   grid-template-rows: 1.4fr 0.6fr 1fr 1fr 1fr 1fr; 
   gap: 0px 0px; 
@@ -310,12 +285,11 @@ box-shadow:  3px 3px 0px #10364f,
   background: #10364f;
   box-shadow: inset 2px 2px 0px #0a2333,
             inset -2px -2px 0px #16496b;
-
   margin: 5px;
+  height: 990px;
 }
 
-.p1 { 
-   display: grid; 
+.p1 { display: grid; 
   grid-template-columns: 1fr 1fr 1fr; 
   grid-template-rows: 1fr 1fr 1fr; 
   gap: 0px 0px; 
@@ -332,6 +306,40 @@ box-shadow:  3px 3px 0px #10364f,
   margin-left: 7px;
   margin-top: 3.5px;
   margin-bottom: 7px;
+  transition: transform 0.3s ease-in-out;
+  height: 300px;
+}
+
+/* Tooltip text */
+ .toolTip1, .toolTip2, .toolTip3 {
+  visibility: hidden;
+  width: 255px;
+  height: 290px;
+  background: linear-gradient(145deg, #247ab1, #2b92d3);
+  box-shadow:  2px 2px 0px #10364f,
+             -2px -2px 0px #40daff;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.p1:hover .toolTip1 {
+  visibility: visible;
+}
+
+.p1 img {
+  height: 230px;
+  margin-bottom: 10px;
+  position: absolute;
+}
+
+.p1:hover {
+  transform: scale(1.2);
 }
 
 .p2 { display: grid; 
@@ -351,10 +359,24 @@ box-shadow:  3px 3px 0px #10364f,
   margin-left: 3.5px;
   margin-top: 3.5px;
   margin-bottom: 7px;
+  transition: transform 0.3s ease-in-out;
 }
 
-.p3 { 
-   display: grid; 
+.p2:hover .toolTip2 {
+  visibility: visible;
+}
+
+.p2 img { 
+  height: 230px;
+  margin-bottom: 10px;
+  position: absolute;
+}
+
+.p2:hover {
+  transform: scale(1.2);
+}
+
+.p3 { display: grid; 
   grid-template-columns: 1fr 1fr 1fr; 
   grid-template-rows: 1fr 1fr 1fr; 
   gap: 0px 0px; 
@@ -363,7 +385,7 @@ box-shadow:  3px 3px 0px #10364f,
     ". . ."
     "p3n p3n p3n"; 
   grid-area: p3; 
-     border-radius: 10px;
+  border-radius: 10px;
   background: linear-gradient(145deg,   #1b5b84, #174d6f);
   box-shadow:  2px 2px 0px #10364f,
              -2px -2px 0px #2274a7;
@@ -371,22 +393,39 @@ box-shadow:  3px 3px 0px #10364f,
   margin-left: 3.5px;
   margin-top: 3.5px;
   margin-bottom: 7px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.p3:hover .toolTip3 {
+  visibility: visible;
+}
+
+.p3 img {
+  height: 230px;
+  margin-bottom: 10px;
+  position: absolute;
+
+}
+
+.p3:hover {
+  transform: scale(1.2);
 }
 
 .p1n { grid-area: p1n; 
-    border-radius: 5px;
+  border-radius: 5px;
   background: linear-gradient(145deg, #003658, #002d4a);
   box-shadow:  2px 2px 0px #001522,
              -2px -2px 0px #004f82;
-   margin: 0px;
+  margin: 0px;
+  vertical-align: text-bottom;
 }
 
 .p2n { grid-area: p2n;
-   border-radius: 5px;
+  border-radius: 5px;
   background: linear-gradient(145deg, #003658, #002d4a);
   box-shadow:  2px 2px 0px #001522,
              -2px -2px 0px #004f82;
-   margin: 0px;
+  margin: 0px;
 }
 
 .p3n { grid-area: p3n;
@@ -394,14 +433,8 @@ box-shadow:  3px 3px 0px #10364f,
   background: linear-gradient(145deg, #003658, #002d4a);
   box-shadow:  2px 2px 0px #001522,
              -2px -2px 0px #004f82;
-   margin: 0px;
+  margin: 0px;
 }
-
-.p1i { grid-area: p1i; }
-
-.p2i { grid-area: p2i; }
-
-.p3i { grid-area: p3i; }
 
 .about { display: grid; 
   grid-template-columns: 1fr 1fr 1fr; 
@@ -420,27 +453,30 @@ box-shadow:  3px 3px 0px #10364f,
   margin-left: 7px;
   margin-top: 7px;
   margin-bottom: 3.5px;
+  font-size: 1.7em;
+  height: 340px;
+  text-align: center;
 }
-
-
 
 .clock { grid-area: clock; 
   background: linear-gradient(145deg, #0d2d42, #0f364e);
   box-shadow:  3px 3px 0px #0a2333,
              -3px -3px 0px #004f82;
   margin: 10px;
-    border-radius: 20px;
-    padding: 40px;
+  border-radius: 20px;
+  padding: 40px;
    
-    display: inline-block;
+  display: inline-block;
+  height: 70px;
+  width: 200px;
 }
 
 .time {
-    font-size: 3em;
-    text-align: center;
+  font-size: 2em;
+  text-align: center;
 }
 
-.skills { isplay: grid;
+.skills {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 0px 0px;
@@ -450,7 +486,7 @@ box-shadow:  3px 3px 0px #10364f,
     ". . ."
     ". . .";
   grid-area: skills;
-    border-radius: 10px;
+  border-radius: 10px;
   background: linear-gradient(145deg,   #1b5b84, #174d6f);
   box-shadow:  2px 2px 0px #10364f,
              -2px -2px 0px #2274a7;
@@ -458,6 +494,10 @@ box-shadow:  3px 3px 0px #10364f,
   margin-left: 7px;
   margin-top: 3.5px;
   margin-bottom: 3.5px;
+  font-size: 1.4em;
+  text-align: justify;
+  text-indent: 50px;
+  height: 325px;
 }
 
 .lang {  display: grid;
@@ -470,53 +510,51 @@ box-shadow:  3px 3px 0px #10364f,
     ". . ."
     ". . .";
   grid-area: 5 / 2 / 6 / 5;
+  height: 50px;
+}
+
+.english, .japanese, .spanish { 
+  border-radius: 10px;
+  background: linear-gradient(145deg, #003658, #002d4a);
+  box-shadow:  2px 2px 0px #001522,
+             -2px -2px 0px #004f82;
+  margin-top: 6px;
+  margin-bottom: 0px;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 .english { grid-area: english; 
-  border-radius: 10px;
- 
-  background: linear-gradient(145deg, #003658, #002d4a);
-  box-shadow:  2px 2px 0px #001522,
-             -2px -2px 0px #004f82;
-  margin-top: 6px;
-  margin-bottom: 0px;
   margin-right: 3.5px;
   margin-left: 7px;
-  text-align: center;
-  font-size: 18px;
-  padding: 10px;
 }
 
 .spanish { grid-area: spanish; 
-   border-radius: 10px;
- 
-background: linear-gradient(145deg, #003658, #002d4a);
-box-shadow:  2px 2px 0px #001522,
-             -2px -2px 0px #004f82;
-   margin-top: 6px;
-  margin-bottom: 0px;
   margin-right: 3.5px;
   margin-left: 3.5px;
-  padding: 10px;
-  text-align: center;
-  font-size: 18px;
-  padding: 10px;
 }
 
 .japanese { grid-area: japanese; 
-   border-radius: 10px;
+  margin-right: 7px;
+  margin-left: 3.5px;
+}
+
+.english:hover, .japanese:hover, .spanish:hover {
+  transform: scale(1.01);
+  background: linear-gradient(145deg, #002a4d, #00304f);
+}
+
+.english:active, .japanese:active, .spanish:active {
+  transform: scale(0.99);
   background: linear-gradient(145deg, #003658, #002d4a);
   box-shadow:  2px 2px 0px #001522,
              -2px -2px 0px #004f82;
-  margin-top: 6px;
-  margin-bottom: 0px;
-  margin-right: 7px;
-  margin-left: 3.5px;
-  text-align: center;
-  font-size: 18px;
-  padding: 10px;
 }
-
 
 
 
