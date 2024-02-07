@@ -37,7 +37,7 @@ canvas {
 .container {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 5rem 1fr 1fr 1fr 1fr;
 	gap: 0px 0px;
 	grid-auto-flow: row;
 	grid-area: canvas;
@@ -534,12 +534,14 @@ input {
 		-3px -3px 0px #004f82;
 	margin: 10px;
 	border-radius: 20px;
-	padding: 40px;
+	padding: 2rem;
 
 	display: inline-block;
-	height: 70px;
-	width: 200px;
+	height: 2rem;
 	font-weight: bold;
+
+	display: flex;
+	align-items: center;
 }
 
 .time {
