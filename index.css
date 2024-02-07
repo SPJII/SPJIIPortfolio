@@ -329,6 +329,11 @@ input {
   z-index: 1;
 }
 
+.skillsInfo1 {
+	display: flex;
+	flex-direction: column;
+}
+
 /* Show the tooltip text when you mouse over the tooltip container */
 .p1:hover .toolTip1 {
   visibility: visible;
