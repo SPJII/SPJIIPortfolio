@@ -46,7 +46,7 @@ canvas {
 .main { grid-area: 2 / 2 / 5 / 5; 
   border-radius: 20px;
   background: #19557b;
-  height: 1000px;
+  height: 1010px;
   width: 1200px;
 }
 
@@ -286,8 +286,21 @@ input {
   box-shadow: inset 2px 2px 0px #0a2333,
             inset -2px -2px 0px #16496b;
   margin: 5px;
-  height: 990px;
+  height: 1000px;
 }
+
+.p1, .p2, .p3 { 
+  background: linear-gradient(145deg,   #1b5b84, #174d6f);
+  box-shadow:  2px 2px 0px #10364f,
+             -2px -2px 0px #2274a7;
+  transition: transform 0.3s ease-in-out;
+  height: 290px;
+  margin-top: 0.1rem;
+  margin-bottom: 1rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  border-radius: 10px;
+ }
 
 .p1 { display: grid; 
   grid-template-columns: 1fr 1fr 1fr; 
@@ -298,20 +311,10 @@ input {
     ". . ."
     "p1n p1n p1n"; 
   grid-area: p1; 
-  border-radius: 10px;
-  background: linear-gradient(145deg,   #1b5b84, #174d6f);
-  box-shadow:  2px 2px 0px #10364f,
-             -2px -2px 0px #2274a7;
-  margin-right: 3.5px;
-  margin-left: 7px;
-  margin-top: 3.5px;
-  margin-bottom: 7px;
-  transition: transform 0.3s ease-in-out;
-  height: 300px;
 }
 
 /* Tooltip text */
- .toolTip1, .toolTip2, .toolTip3 {
+ .skillInfo1, .skillInfo2, .skillInfo3, .toolTip1, .toolTip2, .toolTip3 {
   visibility: hidden;
   width: 255px;
   height: 290px;
@@ -320,7 +323,6 @@ input {
              -2px -2px 0px #40daff;
   color: #fff;
   text-align: center;
-  padding: 5px 0;
   border-radius: 6px;
   /* Position the tooltip text - see examples below! */
   position: absolute;
@@ -332,11 +334,23 @@ input {
   visibility: visible;
 }
 
-.p1 img {
-  height: 230px;
+.p1 img, .p2 img, .p3 img {
+  height: 200px;
+  width: 250px;
+  margin-bottom: 20px;
+  position: absolute;
+}
+
+.skill1 img, .skill2 img, .skill3 img {
+
+  width: 130px;
+  margin-left: 60px;
+  margin-right: 10px;
+  margin-top: 30px;
   margin-bottom: 10px;
   position: absolute;
 }
+
 
 .p1:hover {
   transform: scale(1.2);
@@ -351,26 +365,12 @@ input {
     ". . ."
     "p2n p2n p2n"; 
   grid-area: p2; 
-      border-radius: 10px;
-  background: linear-gradient(145deg,   #1b5b84, #174d6f);
-  box-shadow:  2px 2px 0px #10364f,
-             -2px -2px 0px #2274a7;
-  margin-right: 3.5px;
-  margin-left: 3.5px;
-  margin-top: 3.5px;
-  margin-bottom: 7px;
-  transition: transform 0.3s ease-in-out;
 }
 
 .p2:hover .toolTip2 {
   visibility: visible;
 }
 
-.p2 img { 
-  height: 230px;
-  margin-bottom: 10px;
-  position: absolute;
-}
 
 .p2:hover {
   transform: scale(1.2);
@@ -389,29 +389,17 @@ input {
   background: linear-gradient(145deg,   #1b5b84, #174d6f);
   box-shadow:  2px 2px 0px #10364f,
              -2px -2px 0px #2274a7;
-  margin-right: 7px;
-  margin-left: 3.5px;
-  margin-top: 3.5px;
-  margin-bottom: 7px;
-  transition: transform 0.3s ease-in-out;
 }
 
 .p3:hover .toolTip3 {
   visibility: visible;
 }
 
-.p3 img {
-  height: 230px;
-  margin-bottom: 10px;
-  position: absolute;
-
-}
-
 .p3:hover {
   transform: scale(1.2);
 }
 
-.p1n { grid-area: p1n; 
+.p1n, .p2n, .p3n,.skill1n, .skill2n, .skill3n { grid-area: p1n; 
   border-radius: 5px;
   background: linear-gradient(145deg, #003658, #002d4a);
   box-shadow:  2px 2px 0px #001522,
@@ -420,31 +408,25 @@ input {
   vertical-align: text-bottom;
 }
 
+.p1n { grid-area: p1n; 
+}
+
 .p2n { grid-area: p2n;
-  border-radius: 5px;
-  background: linear-gradient(145deg, #003658, #002d4a);
-  box-shadow:  2px 2px 0px #001522,
-             -2px -2px 0px #004f82;
-  margin: 0px;
 }
 
 .p3n { grid-area: p3n;
-  border-radius: 5px;
-  background: linear-gradient(145deg, #003658, #002d4a);
-  box-shadow:  2px 2px 0px #001522,
-             -2px -2px 0px #004f82;
-  margin: 0px;
 }
 
-.about { display: grid; 
-  grid-template-columns: 1fr 1fr 1fr; 
-  grid-template-rows: 1fr 1fr 1fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
+.about {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
     "aboutText aboutText clock"
     "aboutText aboutText clock"
-    "aboutText aboutText ."; 
-  grid-area: about; 
+    "aboutText aboutText .";
+  grid-area: about;
   border-radius: 10px;
   background: linear-gradient(145deg,   #1b5b84, #174d6f);
   box-shadow:  2px 2px 0px #10364f,
@@ -458,8 +440,28 @@ input {
   text-align: center;
 }
 
+.aboutText { grid-area: aboutText;
+  margin-top: 50px;
+
+  font-size: 1.35em;
+}
+
+#aboutText {
+  font-size: 1.35em;
+  animation: text-animation 1s infinite alternate;
+}
+
+@keyframes text-animation {
+  0% {
+    font-size: 1.35em;
+  }
+  100% {
+    font-size: 1.4em;
+  }
+}
+
 .clock { grid-area: clock; 
-  background: linear-gradient(145deg, #0d2d42, #0f364e);
+  background: linear-gradient(-45deg, #ff357a, #fff172);
   box-shadow:  3px 3px 0px #0a2333,
              -3px -3px 0px #004f82;
   margin: 10px;
@@ -469,6 +471,7 @@ input {
   display: inline-block;
   height: 70px;
   width: 200px;
+  font-weight: bold;
 }
 
 .time {
@@ -476,7 +479,49 @@ input {
   text-align: center;
 }
 
-.skills {
+.skills {display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "skill1 skill2 skill3"
+    "skill1 skill2 skill3"
+    "skill1 skill2 skill3";
+  grid-area: skills;
+  border-radius: 10px;
+  background: linear-gradient(145deg,   #1b5b84, #174d6f);
+  box-shadow:  2px 2px 0px #10364f,
+             -2px -2px 0px #2274a7;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  height: 330px;
+}
+
+.skill1, .skill2, .skill3 {  display: grid;
+  border-radius: 10px;
+  background: linear-gradient(145deg,   #1b5b84, #174d6f);
+  box-shadow:  2px 2px 0px #10364f,
+             -2px -2px 0px #2274a7;
+  text-align: justify;
+  transition: transform 0.3s ease-in-out;
+  height: 290px;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+#skill1n, #skill2n, #skill3n, #p1n, #p2n, #p3n {
+  font-size: 1em;
+  text-align: center;
+  margin-top: 2.2rem;
+
+}
+
+
+.skill1 { display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 0px 0px;
@@ -484,21 +529,51 @@ input {
   grid-template-areas:
     ". . ."
     ". . ."
-    ". . .";
-  grid-area: skills;
-  border-radius: 10px;
-  background: linear-gradient(145deg,   #1b5b84, #174d6f);
-  box-shadow:  2px 2px 0px #10364f,
-             -2px -2px 0px #2274a7;
-  margin-right: 7px;
-  margin-left: 7px;
-  margin-top: 3.5px;
-  margin-bottom: 3.5px;
-  font-size: 1.4em;
-  text-align: justify;
-  text-indent: 50px;
-  height: 325px;
+    "skill1n skill1n skill1n";
+  grid-area: skill1;
 }
+
+.skill1:hover, .skill2:hover, .skill3:hover,.p1:hover, .p2:hover, .p3:hover, .skillInfo1:hover, .skillInfo2:hover, .skillInfo3:hover, .toolTip1:hover, .toolTip2:hover, .toolTip3:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+  
+}
+
+.skill1:hover .skillInfo1, .skill2:hover .skillInfo2, .skill3:hover .skillInfo3, .p1:hover .toolTip1, .p2:hover .toolTip2, .p3:hover .toolTip3 {
+  visibility: visible;
+}
+
+.skill1n { grid-area: skill1n; }
+
+.skill2 {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . ."
+    ". . ."
+    "skill2n skill2n skill2n";
+  grid-area: skill2;
+}
+
+.skill2n { grid-area: skill2n; }
+
+.skill3 {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . ."
+    ". . ."
+    "skill3n skill3n skill3n";
+  grid-area: skill3;
+}
+
+.skill3n { grid-area: skill3n; }
+
+
 
 .lang {  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -513,7 +588,7 @@ input {
   height: 50px;
 }
 
-.english, .japanese, .spanish { 
+.language, .english, .japanese, .spanish { 
   border-radius: 10px;
   background: linear-gradient(145deg, #003658, #002d4a);
   box-shadow:  2px 2px 0px #001522,
@@ -544,7 +619,7 @@ input {
   margin-left: 3.5px;
 }
 
-.english:hover, .japanese:hover, .spanish:hover {
+.language:hover, .english:hover, .japanese:hover, .spanish:hover {
   transform: scale(1.01);
   background: linear-gradient(145deg, #002a4d, #00304f);
 }

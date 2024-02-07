@@ -1,3 +1,6 @@
+
+
+
 // Set up the canvas
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
@@ -75,23 +78,20 @@ setInterval(updateTime, 1000);
 // Initial call to display time immediately
 updateTime();
 
-function download() {
-      // Create a Blob with the file content
-      const content = 'Replace this string with your resume content';
-      const blob = new Blob([content], { type: 'text/plain' });
+document.addEventListener("DOMContentLoaded", function() {
+    var resumeButton = document.querySelector(".resume");
+    resumeButton.addEventListener("click", function() {
+        // Create an anchor element
+        var downloadLink = document.createElement("a");
+        downloadLink.href = "UC_Resume_SPJII.pdf"; // Replace with the path to your PDF file
+        downloadLink.download = "UC_Resume_SPJII.pdf"; // Specify the file name for download
+        downloadLink.target = "_blank"; // Open the PDF file in a new tab
+        document.body.appendChild(downloadLink);
+        downloadLink.click(); // Simulate a click on the download link
+        document.body.removeChild(downloadLink); // Clean up after download
+    });
+});
 
-      // Create an anchor element to trigger the download
-      const a = document.createElement('a');
-      a.href = window.URL.createObjectURL(blob);
-      a.download = 'download.txt';
-
-      // Append the anchor element to the document and trigger the download
-      document.body.appendChild(a);
-      a.click();
-
-      // Remove the anchor element from the document
-      document.body.removeChild(a);
-    }
 
 function redirectToWebsite(url) {
         window.location.href = url;
