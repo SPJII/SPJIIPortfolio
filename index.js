@@ -94,8 +94,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 function redirectToWebsite(url) {
-        window.location.href = url;
-    }
+    var newTab = window.open(url, '_blank');
+    newTab.focus();
+}
     function copyToClipboard() {
         // Get the text from the input field
         var textToCopy = document.getElementById("textToCopy").value;
