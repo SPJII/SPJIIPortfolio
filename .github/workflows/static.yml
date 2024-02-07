@@ -50,9 +50,9 @@ jobs:
         uses: actions/cache@v4.0.0
         with:
           # A list of files, directories, and wildcard patterns to cache and restore
-          path: 
+          path: "../../*"
           # An explicit key for restoring and saving the cache
-          key: 
+          key: "spjii"
           # An ordered list of keys to use for restoring stale cache if no cache hit occurred for key. Note `cache-hit` returns false in this case.
           restore-keys: # optional
           # The chunk size used to split up large files during upload, in bytes
@@ -88,10 +88,12 @@ jobs:
           cache: # optional
           # Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
           cache-dependency-path: # optional
+      
       - name: Building i18n files
         # You may pin to the exact commit or the version.
         # uses: text-adi/build-language-i18n-action@2c4c03fabede95eab3b3dd210f58f9a183a372b3
         uses: text-adi/build-language-i18n-action@v1
+      
       - name: i18n coverage
         # You may pin to the exact commit or the version.
         # uses: alexkiro/i18n-coverage@630697d2bbaf9f37f57c0a941674fb4462a47b5d
