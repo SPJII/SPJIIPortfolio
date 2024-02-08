@@ -92,30 +92,29 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-
 function redirectToWebsite(url) {
     var newTab = window.open(url, '_blank');
     newTab.focus();
 }
-    function copyToClipboard() {
-        // Get the text from the input field
-        var textToCopy = document.getElementById("textToCopy").value;
+function copyToClipboard() {
+    // Get the text from the input field
+    var textToCopy = document.getElementById("textToCopy").value;
 
-        // Create a temporary input element
-        var tempInput = document.createElement("input");
-        tempInput.value = textToCopy;
-        document.body.appendChild(tempInput);
+    // Create a temporary input element
+     var tempInput = document.createElement("input");
+    tempInput.value = textToCopy;
+    document.body.appendChild(tempInput);
 
-        // Select the text in the input element
-        tempInput.select();
-        tempInput.setSelectionRange(0, 99999); /* For mobile devices */
+     // Select the text in the input element
+    tempInput.select();
+    tempInput.setSelectionRange(0, 99999); /* For mobile devices */
 
-        // Copy the selected text to the clipboard
-        document.execCommand("copy");
+    // Copy the selected text to the clipboard
+    document.execCommand("copy");
 
-        // Remove the temporary input element
-        document.body.removeChild(tempInput);
+    // Remove the temporary input element
+    document.body.removeChild(tempInput);
 
-        // Provide some feedback (you can customize this part)
-        alert("Text copied to clipboard: " + textToCopy);
+    // Provide some feedback (you can customize this part)
+    alert("Text copied to clipboard: " + textToCopy);
     }
