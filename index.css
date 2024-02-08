@@ -19,20 +19,24 @@ canvas {
 }
 
 
+
 .container {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	grid-template-rows: 1fr ;
+	grid-template-rows: 5rem r;
 	gap: 0px 0px;
 	grid-auto-flow: row;
 	grid-area: canvas;
+	grid-area: 2 / 2 / 5 / 5;
 }
+
 
 .main {
 	grid-area: 2 / 2 / 5 / 5;
 	border-radius: 20px;
 	background: #19557b;
 	height: 95vh;
+	width: 70vw;
 }
 
 .pic {
@@ -43,8 +47,7 @@ canvas {
 	margin: 3rem;
 	border-radius: 50%;
 	height: 30vh;
-	width: 30vh;
-	object-fit: cover;
+	width: 15vw;
 }
 
 .pic img {
@@ -69,8 +72,9 @@ canvas {
 	gap: 0px 0px;
 	grid-auto-flow: row;
 	grid-area: 3 / 2 / 5 / 3;
-	margin: 5px;
+	margin: 1rem;
 	height: 50vh;
+	width: 20vw;
 }
 
 
@@ -291,6 +295,7 @@ input {
 .downloadText {
 	grid-area: downloadText;
 	color: white;
+	word-spacing: 10vw;
 }
 
 .github {
@@ -345,7 +350,7 @@ input {
 	background: #10364f;
 	box-shadow: inset 2px 2px 0px #0a2333,
 		inset -2px -2px 0px #16496b;
-	margin: 5px;
+	margin: 0.1rem;
 	height: 94vh;
 }
 
@@ -383,9 +388,7 @@ input {
 .toolTip1,
 .toolTip2,
 .toolTip3 {
-	visibility: hidden;
-	width: 255px;
-	height: 290px;
+	visibility: hidden;;
 	background: linear-gradient(145deg, #247ab1, #2b92d3);
 	box-shadow: 2px 2px 0px #10364f,
 		-2px -2px 0px #40daff;
@@ -394,6 +397,7 @@ input {
 	border-radius: 6px;
 	/* Position the tooltip text - see examples below! */
 	position: absolute;
+	height: 30vh;
 	z-index: 1;
 }
 
@@ -410,20 +414,19 @@ input {
 .p1 img,
 .p2 img,
 .p3 img {
-	height: 200px;
-	width: 250px;
-	margin-bottom: 20px;
+	margin: 1rem;
 	position: absolute;
+	width: 10vw;
+
 }
 
 .skill1 img,
 .skill2 img,
 .skill3 img {
-
-	
-	margin: 1rem;
+	margin: 2rem;
 	position: absolute;
-	width: 15vh;
+	padding-bottom: 3rem;
+	width: 7vw;
 }
 
 
