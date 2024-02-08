@@ -1,635 +1,793 @@
-
 body {
-    background-color: #0a171f;
-    color: white;
-    align-items: center;
-    justify-content: center;
-    height: 1000px;
-    margin: 0;
-    display: inline-block;
-    font-size: 1em;
-    font-family: 'Arial', sans-serif;
-    text-align: center;
+	background-color: #0a171f;
+	color: white;
+	align-items: center;
+	justify-content: center;
+	height: 1000px;
+	margin: 0;
+	display: inline-block;
+	font-size: 1em;
+	font-family: 'Arial', sans-serif;
+	text-align: center;
 }
 
 canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1; 
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
 }
 
-.container {  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-auto-rows: 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "canvas canvas canvas"
-    "canvas canvas canvas"
-    "canvas canvas canvas";
-  margin: 0;
-  vertical-align: middle;
-  align-self: center
-  
+.container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-auto-rows: 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"canvas canvas canvas"
+		"canvas canvas canvas"
+		"canvas canvas canvas";
+	margin: 0;
+	vertical-align: middle;
+	align-self: center
 }
 
-.canvas {  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-area: canvas;
+.container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 5rem 1fr 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-area: canvas;
 }
 
-.main { grid-area: 2 / 2 / 5 / 5; 
-  border-radius: 20px;
-  background: #19557b;
-  height: 1010px;
-  width: 1200px;
+.main {
+	grid-area: 2 / 2 / 5 / 5;
+	border-radius: 20px;
+	background: #19557b;
+	height: 1010px;
+	width: 1200px;
 }
 
-.pic{ grid-area: 2 / 2 / 3 / 3; 
-  box-shadow:  30px 30px 0px #0a2333,
-             -30px -30px 0px #2a7cb3;
-  margin: 15px;
-  margin-top: 60px;
-  margin-left: 60px;
-  border-radius:50%;
-  padding-right: 30px;
-  height: 250px;
-  width: 250px;
-  object-fit:cover;
-  background: linear-gradient(-45deg, #ff357a, #fff172);
+.pic {
+	grid-area: 2 / 2 / 3 / 3;
+	box-shadow: 30px 30px 0px #0a2333,
+		-30px -30px 0px #2a7cb3;
+	margin: 15px;
+	margin-top: 60px;
+	margin-left: 60px;
+	border-radius: 50%;
+	padding-right: 30px;
+	height: 250px;
+	width: 250px;
+	object-fit: cover;
+	background: linear-gradient(-45deg, #ff357a, #fff172);
 }
 
 .pic img {
-  border-radius: 45%;
-  padding-left: 10px;
-  padding-right: 32px;
-  height: 100%;
-  width: 100%;
+	border-radius: 45%;
+	padding-left: 10px;
+	padding-right: 32px;
+	height: 100%;
+	width: 100%;
 }
 
-.info {  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "name name name"
-    "github github github"
-    "email email email"
-    "phone phone phone"
-    "resume resume resume";
-  grid-area: 3 / 2 / 5 / 3;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-area: 3 / 2 / 5 / 3;
-  margin: 5px;
-  height: 600px;
-}
-
-.name,.github,.phone,.resume{  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "jobIcon namePlate namePlate"
-    "jobIcon namePlate namePlate"
-    "jobIcon namePlate namePlate";
-  grid-area: name;
-  border-radius: 10px;
-  background: linear-gradient(145deg, #003658, #002d4a);
-  box-shadow:  3px 3px 0px #001522,
-             -3px -3px 0px #004f82;
-
-  margin: 10px;
-  padding: 10px;
-
+.info {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"name name name"
+		"github github github"
+		"email email email"
+		"phone phone phone"
+		"resume resume resume";
+	grid-area: 3 / 2 / 5 / 3;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-area: 3 / 2 / 5 / 3;
+	margin: 5px;
+	height: 600px;
 }
 
 
-.jobIcon,.emailIcon,.contactIcon,.downloadIcon,.githubIcon { grid-area: jobIcon; 
-  margin: -10px -10px;
+/**
+	this is for the name plate on the left
+*/
+.info > div {
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+	justify-content: space-evenly;
 }
 
-.namePlate,.contactMe,.downloadText,.githubText,.emailText { grid-area: namePlate;
-  margin: -3px;
-  font-size: 20px;
-  width: 130px;
-  height: 10px;
+/**
+	this is for the buttons on the left
+*/
+.info > button {
+	display: flex;
+	align-items: center;
+	padding: 0rem 1rem 0rem 1rem;
+	justify-content: left;
 }
 
-.namePlate {  
-  font-weight: bold;
-  width: 200px;
-  height: 10px;
+.infoIcon, .jobIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 }
 
-.email { display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "emailIcon emailText emailText"
-    "emailIcon emailText emailText"
-    "emailIcon emailText emailText";
-  grid-area: email;
-  border-radius: 10px;
-  background: linear-gradient(145deg, #247ab1, #2b92d3);
-  box-shadow:  3px 3px 0px #10364f,
-             -3px -3px 0px #40daff;
-  padding: 15px 10px;
-  font-size: .9em;
-  margin: 10px;
-  border: none;
-  cursor: pointer;
-  color: white;
-  transition: transform 0.3s ease-in-out;
-  
+.infoText, .namePlate{
+	display: flex;
+	align-items: center;
+	padding: 2rem;
 }
 
-.email:hover, .github:hover, .linkedin:hover, .resume:hover {
-  background: linear-gradient(145deg, #004774, #00558a);
-  box-shadow:  3px 3px 0px #002034,
-             -3px -3px 0px #007ece;
-  margin: 8px;
-  transform: scale(1.04);
+/**
+	avoid names like flex-center to avoid conflicting with potential CSS library classes e.g. text-center
+*/
+.flexCenter {
+	display: flex;
+	align-items: center;
 }
 
-.email:active, .github:active, .linkedin:active, .resume:active {
-  background: linear-gradient(145deg, #247ab1, #2b92d3);
-  box-shadow:  3px 3px 0px #10364f,
-             -3px -3px 0px #40daff;
-  transform: scale(1.0);
+.name,
+.github,
+.phone,
+.resume {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"jobIcon namePlate namePlate"
+		"jobIcon namePlate namePlate"
+		"jobIcon namePlate namePlate";
+	grid-area: name;
+	border-radius: 10px;
+	background: linear-gradient(145deg, #003658, #002d4a);
+	box-shadow: 3px 3px 0px #001522,
+		-3px -3px 0px #004f82;
+
+	margin: 10px;
+	padding: 10px;
+
+}
+
+
+.jobIcon,
+.emailIcon,
+.contactIcon,
+.downloadIcon,
+.githubIcon {
+	grid-area: jobIcon;
+	margin: -10px -10px;
+}
+
+.namePlate,
+.contactMe,
+.downloadText,
+.githubText,
+.emailText {
+	grid-area: namePlate;
+	margin: -3px;
+	font-size: 20px;
+
+	height: 10px;
+}
+
+.namePlate {
+	font-weight: bold;
+
+	height: 10px;
+}
+
+.email {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"emailIcon emailText emailText"
+		"emailIcon emailText emailText"
+		"emailIcon emailText emailText";
+	grid-area: email;
+	border-radius: 10px;
+	background: linear-gradient(145deg, #247ab1, #2b92d3);
+	box-shadow: 3px 3px 0px #10364f,
+		-3px -3px 0px #40daff;
+	padding: 15px 10px;
+	font-size: .9em;
+	margin: 10px;
+	border: none;
+	cursor: pointer;
+	color: white;
+	transition: transform 0.3s ease-in-out;
+
+}
+
+.email:hover,
+.github:hover,
+.linkedin:hover,
+.resume:hover {
+	background: linear-gradient(145deg, #004774, #00558a);
+	box-shadow: 3px 3px 0px #002034,
+		-3px -3px 0px #007ece;
+	margin: 8px;
+	transform: scale(1.04);
+}
+
+.email:active,
+.github:active,
+.linkedin:active,
+.resume:active {
+	background: linear-gradient(145deg, #247ab1, #2b92d3);
+	box-shadow: 3px 3px 0px #10364f,
+		-3px -3px 0px #40daff;
+	transform: scale(1.0);
 }
 
 input {
-  position: absolute;
-  left: -9999px;
+	position: absolute;
+	left: -9999px;
 }
 
-.emailIcon { grid-area: emailIcon; }
-
-.emailText { grid-area: emailText; }
-
-.linkedin {display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "contactIcon contactMe contactMe"
-    "contactIcon contactMe contactMe"
-    "contactIcon contactMe contactMe";
-  grid-area: phone;
-    border-radius: 10px;
-  background: linear-gradient(145deg, #247ab1, #2b92d3);
-  box-shadow:  3px 3px 0px #10364f,
-             -3px -3px 0px #40daff;
-  padding: 15px 10px;
-  font-size: .9em;
-  margin: 10px;
-  word-spacing: 60px;
-  border: none;
-  cursor: pointer;
-  color: white;
-  transition: transform 0.3s ease-in-out;
+.emailIcon {
+	grid-area: emailIcon;
 }
 
-.contactIcon { grid-area: contactIcon; }
-
-.contactMe { grid-area: contactMe; }
-
-
-.resume {  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "downloadIcon downloadText downloadText"
-    "downloadIcon downloadText downloadText"
-    "downloadIcon downloadText downloadText";
-  grid-area: resume; 
-  border-radius: 100px;
-  background: linear-gradient(145deg, #003658, #002d4a);
-  box-shadow:  3px 3px 0px #001522,
-             -3px -3px 0px #004f82;
-  padding: 15px 10px;
-  font-size: .9em;
-  margin: 10px;
-  word-spacing: 60px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  transition: transform 0.3s ease-in-out;
+.emailText {
+	grid-area: emailText;
 }
 
-.downloadIcon { grid-area: downloadIcon; }
-
-.downloadText { grid-area: downloadText;
- color: white;
+.linkedin {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"contactIcon contactMe contactMe"
+		"contactIcon contactMe contactMe"
+		"contactIcon contactMe contactMe";
+	grid-area: phone;
+	border-radius: 10px;
+	background: linear-gradient(145deg, #247ab1, #2b92d3);
+	box-shadow: 3px 3px 0px #10364f,
+		-3px -3px 0px #40daff;
+	padding: 15px 10px;
+	font-size: .9em;
+	margin: 10px;
+	border: none;
+	cursor: pointer;
+	color: white;
+	transition: transform 0.3s ease-in-out;
 }
 
-.github{ display: grid;
-  grid-template-columns: 1fr 1.1fr 0.9fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "githubIcon githubText githubText"
-    "githubIcon githubText githubText"
-    "githubIcon githubText githubText";
-  grid-area: github;
-  border-radius: 10px;
-  background: linear-gradient(145deg, #247ab1, #2b92d3);
-  box-shadow:  3px 3px 0px #10364f,
-             -3px -3px 0px #40daff;
-  padding: 15px 10px;
-  font-size: .9em;
-  margin: 10px;
-  border: none;
-  cursor: pointer;
-  color: white;
-  transition: transform 0.3s ease-in-out;
- 
+.contactIcon {
+	grid-area: contactIcon;
+}
+
+.contactMe {
+	grid-area: contactMe;
 }
 
 
-.githubIcon { grid-area: githubIcon;
+.resume {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"downloadIcon downloadText downloadText"
+		"downloadIcon downloadText downloadText"
+		"downloadIcon downloadText downloadText";
+	grid-area: resume;
+	border-radius: 100px;
+	background: linear-gradient(145deg, #003658, #002d4a);
+	box-shadow: 3px 3px 0px #001522,
+		-3px -3px 0px #004f82;
+	padding: 15px 10px;
+	font-size: .9em;
+	margin: 10px;
+	word-spacing: 60px;
+	border: none;
+	cursor: pointer;
+	font-weight: bold;
+	transition: transform 0.3s ease-in-out;
 }
 
-.githubText { grid-area: githubText; 
-  word-spacing: 60px;
+.downloadIcon {
+	grid-area: downloadIcon;
 }
 
-.bio {  display: grid;
-  display: grid; 
-  grid-template-columns: 1fr 1fr 1fr; 
-  grid-template-rows: 1.4fr 0.6fr 1fr 1fr 1fr 1fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
-    "about about about"
-    "about about about"
-    "skills skills skills"
-    "skills skills skills"
-    "p1 p2 p3"
-    "p1 p2 p3"; 
-  grid-area: 2 / 3 / 5 / 5; 
-  border-radius: 15px;
-  background: #10364f;
-  box-shadow: inset 2px 2px 0px #0a2333,
-            inset -2px -2px 0px #16496b;
-  margin: 5px;
-  height: 1000px;
+.downloadText {
+	grid-area: downloadText;
+	color: white;
 }
 
-.p1, .p2, .p3 { 
-  background: linear-gradient(145deg,   #1b5b84, #174d6f);
-  box-shadow:  2px 2px 0px #10364f,
-             -2px -2px 0px #2274a7;
-  transition: transform 0.3s ease-in-out;
-  height: 290px;
-  margin-top: 0.1rem;
-  margin-bottom: 1rem;
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
-  border-radius: 10px;
- }
+.github {
+	display: grid;
+	grid-template-columns: 1fr 1.1fr 0.9fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"githubIcon githubText githubText"
+		"githubIcon githubText githubText"
+		"githubIcon githubText githubText";
+	grid-area: github;
+	border-radius: 10px;
+	background: linear-gradient(145deg, #247ab1, #2b92d3);
+	box-shadow: 3px 3px 0px #10364f,
+		-3px -3px 0px #40daff;
+	padding: 15px 10px;
+	font-size: .9em;
+	margin: 10px;
+	border: none;
+	cursor: pointer;
+	color: white;
+	transition: transform 0.3s ease-in-out;
 
-.p1 { display: grid; 
-  grid-template-columns: 1fr 1fr 1fr; 
-  grid-template-rows: 1fr 1fr 1fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
-    ". . ."
-    ". . ."
-    "p1n p1n p1n"; 
-  grid-area: p1; 
+}
+
+
+.githubIcon {
+	grid-area: githubIcon;
+}
+
+.githubText {
+	grid-area: githubText;
+}
+
+.bio {
+	display: grid;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1.4fr 0.6fr 1fr 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-template-areas:
+		"about about about"
+		"about about about"
+		"skills skills skills"
+		"skills skills skills"
+		"p1 p2 p3"
+		"p1 p2 p3";
+	grid-area: 2 / 3 / 5 / 5;
+	border-radius: 15px;
+	background: #10364f;
+	box-shadow: inset 2px 2px 0px #0a2333,
+		inset -2px -2px 0px #16496b;
+	margin: 5px;
+	height: 1000px;
+}
+
+.p1,
+.p2,
+.p3 {
+	background: linear-gradient(145deg, #1b5b84, #174d6f);
+	box-shadow: 2px 2px 0px #10364f,
+		-2px -2px 0px #2274a7;
+	transition: transform 0.3s ease-in-out;
+	height: 290px;
+	margin-top: 0.1rem;
+	margin-bottom: 1rem;
+	margin-right: 0.5rem;
+	margin-left: 0.5rem;
+	border-radius: 10px;
+}
+
+.p1 {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-template-areas:
+		". . ."
+		". . ."
+		"p1n p1n p1n";
+	grid-area: p1;
 }
 
 /* Tooltip text */
- .skillInfo1, .skillInfo2, .skillInfo3, .toolTip1, .toolTip2, .toolTip3 {
-  visibility: hidden;
-  width: 255px;
-  height: 290px;
-  background: linear-gradient(145deg, #247ab1, #2b92d3);
-  box-shadow:  2px 2px 0px #10364f,
-             -2px -2px 0px #40daff;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
+.skillInfo1,
+.skillInfo2,
+.skillInfo3,
+.toolTip1,
+.toolTip2,
+.toolTip3 {
+	visibility: hidden;
+	width: 255px;
+	height: 290px;
+	background: linear-gradient(145deg, #247ab1, #2b92d3);
+	box-shadow: 2px 2px 0px #10364f,
+		-2px -2px 0px #40daff;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	/* Position the tooltip text - see examples below! */
+	position: absolute;
+	z-index: 1;
+}
+
+.skillsInfo1 {
+	display: flex;
+	flex-direction: column;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
 .p1:hover .toolTip1 {
-  visibility: visible;
+	visibility: visible;
 }
 
-.p1 img, .p2 img, .p3 img {
-  height: 200px;
-  width: 250px;
-  margin-bottom: 20px;
-  position: absolute;
+.p1 img,
+.p2 img,
+.p3 img {
+	height: 200px;
+	width: 250px;
+	margin-bottom: 20px;
+	position: absolute;
 }
 
-.skill1 img, .skill2 img, .skill3 img {
+.skill1 img,
+.skill2 img,
+.skill3 img {
 
-  width: 130px;
-  margin-left: 60px;
-  margin-right: 10px;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  position: absolute;
+	width: 130px;
+	margin-left: 60px;
+	margin-right: 10px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	position: absolute;
 }
 
 
 .p1:hover {
-  transform: scale(1.2);
+	transform: scale(1.2);
 }
 
-.p2 { display: grid; 
-  grid-template-columns: 1fr 1fr 1fr; 
-  grid-template-rows: 1fr 1fr 1fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
-    ". . ."
-    ". . ."
-    "p2n p2n p2n"; 
-  grid-area: p2; 
+.p2 {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-template-areas:
+		". . ."
+		". . ."
+		"p2n p2n p2n";
+	grid-area: p2;
 }
 
 .p2:hover .toolTip2 {
-  visibility: visible;
+	visibility: visible;
 }
 
 
 .p2:hover {
-  transform: scale(1.2);
+	transform: scale(1.2);
 }
 
-.p3 { display: grid; 
-  grid-template-columns: 1fr 1fr 1fr; 
-  grid-template-rows: 1fr 1fr 1fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
-    ". . ."
-    ". . ."
-    "p3n p3n p3n"; 
-  grid-area: p3; 
-  border-radius: 10px;
-  background: linear-gradient(145deg,   #1b5b84, #174d6f);
-  box-shadow:  2px 2px 0px #10364f,
-             -2px -2px 0px #2274a7;
+.p3 {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-template-areas:
+		". . ."
+		". . ."
+		"p3n p3n p3n";
+	grid-area: p3;
+	border-radius: 10px;
+	background: linear-gradient(145deg, #1b5b84, #174d6f);
+	box-shadow: 2px 2px 0px #10364f,
+		-2px -2px 0px #2274a7;
 }
 
 .p3:hover .toolTip3 {
-  visibility: visible;
+	visibility: visible;
 }
 
 .p3:hover {
-  transform: scale(1.2);
+	transform: scale(1.2);
 }
 
-.p1n, .p2n, .p3n,.skill1n, .skill2n, .skill3n { grid-area: p1n; 
-  border-radius: 5px;
-  background: linear-gradient(145deg, #003658, #002d4a);
-  box-shadow:  2px 2px 0px #001522,
-             -2px -2px 0px #004f82;
-  margin: 0px;
-  vertical-align: text-bottom;
+.p1n,
+.p2n,
+.p3n,
+.skill1n,
+.skill2n,
+.skill3n {
+	grid-area: p1n;
+	border-radius: 5px;
+	background: linear-gradient(145deg, #003658, #002d4a);
+	box-shadow: 2px 2px 0px #001522,
+		-2px -2px 0px #004f82;
+	margin: 0px;
+	vertical-align: text-bottom;
 }
 
-.p1n { grid-area: p1n; 
+.p1n {
+	grid-area: p1n;
 }
 
-.p2n { grid-area: p2n;
+.p2n {
+	grid-area: p2n;
 }
 
-.p3n { grid-area: p3n;
+.p3n {
+	grid-area: p3n;
 }
 
-.about {  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "aboutText aboutText clock"
-    "aboutText aboutText clock"
-    "aboutText aboutText .";
-  grid-area: about;
-  border-radius: 10px;
-  background: linear-gradient(145deg,   #1b5b84, #174d6f);
-  box-shadow:  2px 2px 0px #10364f,
-             -2px -2px 0px #2274a7;
-  margin-right: 7px;
-  margin-left: 7px;
-  margin-top: 7px;
-  margin-bottom: 3.5px;
-  font-size: 1.7em;
-  height: 340px;
-  text-align: center;
+.about {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"aboutText aboutText clock"
+		"aboutText aboutText clock"
+		"aboutText aboutText .";
+	grid-area: about;
+	border-radius: 10px;
+	background: linear-gradient(145deg, #1b5b84, #174d6f);
+	box-shadow: 2px 2px 0px #10364f,
+		-2px -2px 0px #2274a7;
+	margin-right: 7px;
+	margin-left: 7px;
+	margin-top: 7px;
+	margin-bottom: 3.5px;
+	font-size: 1.7em;
+	height: 340px;
+	text-align: center;
 }
 
-.aboutText { grid-area: aboutText;
-  margin-top: 50px;
+.aboutText {
+	grid-area: aboutText;
+	margin-top: 50px;
 
-  font-size: 1.35em;
+	font-size: 1.35em;
 }
 
 #aboutText {
-  font-size: 1.35em;
-  animation: text-animation 1s infinite alternate;
+	font-size: 1.35em;
+	animation: text-animation 1s infinite alternate;
 }
 
 @keyframes text-animation {
-  0% {
-    font-size: 1.35em;
-  }
-  100% {
-    font-size: 1.4em;
-  }
+	0% {
+		font-size: 1.35em;
+	}
+
+	100% {
+		font-size: 1.4em;
+	}
 }
 
-.clock { grid-area: clock; 
-  background: linear-gradient(-45deg, #ff357a, #fff172);
-  box-shadow:  3px 3px 0px #0a2333,
-             -3px -3px 0px #004f82;
-  margin: 10px;
-  border-radius: 20px;
-  padding: 40px;
-   
-  display: inline-block;
-  height: 70px;
-  width: 200px;
-  font-weight: bold;
+.clock {
+	grid-area: clock;
+	background: linear-gradient(-45deg, #ff357a, #fff172);
+	box-shadow: 3px 3px 0px #0a2333,
+		-3px -3px 0px #004f82;
+	margin: 10px;
+	border-radius: 20px;
+	padding: 2rem;
+
+	display: inline-block;
+	height: 2rem;
+	font-weight: bold;
+
+	display: flex;
+	align-items: center;
 }
 
 .time {
-  font-size: 2em;
-  text-align: center;
+	font-size: 2em;
+	text-align: center;
 }
 
-.skills {display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "skill1 skill2 skill3"
-    "skill1 skill2 skill3"
-    "skill1 skill2 skill3";
-  grid-area: skills;
-  border-radius: 10px;
-  background: linear-gradient(145deg,   #1b5b84, #174d6f);
-  box-shadow:  2px 2px 0px #10364f,
-             -2px -2px 0px #2274a7;
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  height: 330px;
+.skills {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"skill1 skill2 skill3"
+		"skill1 skill2 skill3"
+		"skill1 skill2 skill3";
+	grid-area: skills;
+	border-radius: 10px;
+	background: linear-gradient(145deg, #1b5b84, #174d6f);
+	box-shadow: 2px 2px 0px #10364f,
+		-2px -2px 0px #2274a7;
+	margin-right: 0.5rem;
+	margin-left: 0.5rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	height: 330px;
 }
 
-.skill1, .skill2, .skill3 {  display: grid;
-  border-radius: 10px;
-  background: linear-gradient(145deg,   #1b5b84, #174d6f);
-  box-shadow:  2px 2px 0px #10364f,
-             -2px -2px 0px #2274a7;
-  text-align: justify;
-  transition: transform 0.3s ease-in-out;
-  height: 290px;
-  margin-top: 1.2rem;
-  margin-bottom: 0.5rem;
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
-}
-#skill1n, #skill2n, #skill3n, #p1n, #p2n, #p3n {
-  font-size: 1em;
-  text-align: center;
-  margin-top: 2.2rem;
-
+.skill1,
+.skill2,
+.skill3 {
+	display: grid;
+	border-radius: 10px;
+	background: linear-gradient(145deg, #1b5b84, #174d6f);
+	box-shadow: 2px 2px 0px #10364f,
+		-2px -2px 0px #2274a7;
+	text-align: justify;
+	transition: transform 0.3s ease-in-out;
+	height: 290px;
+	margin-top: 1.2rem;
+	margin-bottom: 0.5rem;
+	margin-right: 0.5rem;
+	margin-left: 0.5rem;
 }
 
+#skill1n,
+#skill2n,
+#skill3n,
+#p1n,
+#p2n,
+#p3n {
+	font-size: 1em;
+	text-align: center;
+	margin-top: 2.2rem;
 
-.skill1 { display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    ". . ."
-    ". . ."
-    "skill1n skill1n skill1n";
-  grid-area: skill1;
 }
 
-.skill1:hover, .skill2:hover, .skill3:hover,.p1:hover, .p2:hover, .p3:hover, .skillInfo1:hover, .skillInfo2:hover, .skillInfo3:hover, .toolTip1:hover, .toolTip2:hover, .toolTip3:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease-in-out;
-  
+
+.skill1 {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		". . ."
+		". . ."
+		"skill1n skill1n skill1n";
+	grid-area: skill1;
 }
 
-.skill1:hover .skillInfo1, .skill2:hover .skillInfo2, .skill3:hover .skillInfo3, .p1:hover .toolTip1, .p2:hover .toolTip2, .p3:hover .toolTip3 {
-  visibility: visible;
+.skill1:hover,
+.skill2:hover,
+.skill3:hover,
+.p1:hover,
+.p2:hover,
+.p3:hover,
+.skillInfo1:hover,
+.skillInfo2:hover,
+.skillInfo3:hover,
+.toolTip1:hover,
+.toolTip2:hover,
+.toolTip3:hover {
+	transform: scale(1.1);
+	transition: transform 0.3s ease-in-out;
+
 }
 
-.skill1n { grid-area: skill1n; }
-
-.skill2 {  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    ". . ."
-    ". . ."
-    "skill2n skill2n skill2n";
-  grid-area: skill2;
+.skill1:hover .skillInfo1,
+.skill2:hover .skillInfo2,
+.skill3:hover .skillInfo3,
+.p1:hover .toolTip1,
+.p2:hover .toolTip2,
+.p3:hover .toolTip3 {
+	visibility: visible;
 }
 
-.skill2n { grid-area: skill2n; }
-
-.skill3 {  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    ". . ."
-    ". . ."
-    "skill3n skill3n skill3n";
-  grid-area: skill3;
+.skill1n {
+	grid-area: skill1n;
 }
 
-.skill3n { grid-area: skill3n; }
-
-
-
-.lang {  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "english spanish japanese"
-    ". . ."
-    ". . .";
-  grid-area: 5 / 2 / 6 / 5;
-  height: 50px;
+.skill2 {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		". . ."
+		". . ."
+		"skill2n skill2n skill2n";
+	grid-area: skill2;
 }
 
-.language, .english, .japanese, .spanish { 
-  border-radius: 10px;
-  background: linear-gradient(145deg, #003658, #002d4a);
-  box-shadow:  2px 2px 0px #001522,
-             -2px -2px 0px #004f82;
-  margin-top: 6px;
-  margin-bottom: 0px;
-  color: #fff;
-  text-align: center;
-  font-size: 18px;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  transition: 0.2s;
+.skill2n {
+	grid-area: skill2n;
 }
 
-.english { grid-area: english; 
-  margin-right: 3.5px;
-  margin-left: 7px;
+.skill3 {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		". . ."
+		". . ."
+		"skill3n skill3n skill3n";
+	grid-area: skill3;
 }
 
-.spanish { grid-area: spanish; 
-  margin-right: 3.5px;
-  margin-left: 3.5px;
-}
-
-.japanese { grid-area: japanese; 
-  margin-right: 7px;
-  margin-left: 3.5px;
-}
-
-.language:hover, .english:hover, .japanese:hover, .spanish:hover {
-  transform: scale(1.01);
-  background: linear-gradient(145deg, #002a4d, #00304f);
-}
-
-.english:active, .japanese:active, .spanish:active {
-  transform: scale(0.99);
-  background: linear-gradient(145deg, #003658, #002d4a);
-  box-shadow:  2px 2px 0px #001522,
-             -2px -2px 0px #004f82;
+.skill3n {
+	grid-area: skill3n;
 }
 
 
 
+.lang {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"english spanish japanese"
+		". . ."
+		". . .";
+	grid-area: 5 / 2 / 6 / 5;
+	height: 50px;
+}
+
+.language,
+.english,
+.japanese,
+.spanish {
+	border-radius: 10px;
+	background: linear-gradient(145deg, #003658, #002d4a);
+	box-shadow: 2px 2px 0px #001522,
+		-2px -2px 0px #004f82;
+	margin-top: 6px;
+	margin-bottom: 0px;
+	color: #fff;
+	text-align: center;
+	font-size: 18px;
+	padding: 10px;
+	border: none;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.english {
+	grid-area: english;
+	margin-right: 3.5px;
+	margin-left: 7px;
+}
+
+.spanish {
+	grid-area: spanish;
+	margin-right: 3.5px;
+	margin-left: 3.5px;
+}
+
+.japanese {
+	grid-area: japanese;
+	margin-right: 7px;
+	margin-left: 3.5px;
+}
+
+.language:hover,
+.english:hover,
+.japanese:hover,
+.spanish:hover {
+	transform: scale(1.01);
+	background: linear-gradient(145deg, #002a4d, #00304f);
+}
+
+.english:active,
+.japanese:active,
+.spanish:active {
+	transform: scale(0.99);
+	background: linear-gradient(145deg, #003658, #002d4a);
+	box-shadow: 2px 2px 0px #001522,
+		-2px -2px 0px #004f82;
+}
