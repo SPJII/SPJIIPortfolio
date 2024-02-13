@@ -12,6 +12,8 @@
 			href="favicon_io/favicon-16x16.png">
 		<link rel="manifest" href="favicon_io/site.webmanifest">
 		<link rel="stylesheet" href="index.css">
+		<script src="https://cdn.jsdelivr.net/npm/i18next/dist/umd/i18next.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -24,7 +26,10 @@
 						<img
 							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEtElEQVR4nO2Ze4gWVRjGZ9U029VdhDRsRQrF1LYbpWmBFl0pa11D08wKrS0lN6iwQDOpIIvCLmv5V6DUHy100disvCDds6wwJEsy6UJR6Xa11PzFS89sx+nM9O2emVjre+CD2fOe8z7nnfPOezkbRWWUUUYZ/2sAg4ELgcuB6cB5QG10MAA4GWgGviAdHwMLgP5RVwNwDPCCNroPeAW4HZgEnA6cBtQDi4A3NO8H4DqgIuoKABqBX4BfgfuBQSWsORF4yTmlXcBG4B5g6L+z8wM3NBfYD7wPjOzg2grgamAZ0AJ8KKN+Bx4CDitu5wduZLRINwH9ctJ5HPCsDDL37JuH3n8ifVvuNKwA3TfLmJa8dSeJRoro0QI5msVxdlQgyS0iOb9Ajmrge3O1ogjOBL4CvgF6FUIiAMuBnyw/RXlCeWC/wmXwaQCHAydkyOuVl4xzXihfrHS83Gm9bSAnnc9po5Mz5tQq2Zoxo/MgfVzhdnCwsr+Som1uj35jMubWqBJozoP4XWBHsKI/dfVVAvwZOAXYphqsKmPNBqA1D/KVwF5gYKCegUqidhrTNDZWfy/JWPcR8EQId6zoIn0jzwOHdGJ9jcJ2m17InIT8MWC370UBk8V9Ragdpqw/8J0UXlrimjrgBmCV3MjwiVXDKeWJ4VaPbLO+z6NDjegGvKYIMx/onjF3BPAg8JlT3doJvAzMAnpmrDWX25SSu+wk3wF6hBhyQdrbcuZUAUvl64YPVJZbZ9inRJ6FellVHtkM6b04xJDFUuLNH5bhgXWas0bt7SCNT5esTb+1GuulOXVxtwhMkI6xHo6eOtnFIYbcJ4KaFPkdZONb9RwtevbhPeBGPdd7OHoAv9leQgxpEEGjR9ZHJYthp5qiJkWoFn2k6xP5wNznSc1p0pqdjlte5eGZKtmUEEO6q/+wlnZmQnaO81brPGttk4YBwBF6fiAjahmmJWRTVAlvyQoWpRoz0SFqD4PAlc54dUaTNMLpY25KKdtjnJsYt1M1TAg1wtznS+DrpP/qpiTGJM/aF3WSva0P1/Nqz7xLfC/KAJyhtmFr0IkA14igwSMb42zgc6udHHe0cIpb7AGPaGxBnI+AUc5dmPU6FUWFX0twhkqPbIA+0s1qguLsbT5teNXNCzrd1yWzOdv1HGf+FRk3l4b5IYbYZZvh+BS5BYJPzSWs8FMWbwWu9dVlygmzNWetEqddDRkuS+E4S/LrQww5SW99je++SWWLYVwAx9NKmH+rAlRwblTYHtJZjljZEsdtlqoYrHBaVnONDZ3UPVRZu72MByqB23SBZ4HGcGeQEc7N4BwZEmO4I7+3I5Wxp/vckwjrDQ6PGTI72AgPsYVDw4xE0bhdpX5tB3WZ2z6cGL9bHFZ0dsvbhsgJrTv0O8oZtzId+XNlCXqqnRNuv00BTpWrbstqGXKB/lVgV6Y/qg1uVVG3T5nYbkh6Z6w/VHVXDPvQn9It/V7pHlWoEc5mhgHPKB+YQasV4RrlLm8BR6b07RaiDfMUWt/Ud2Ivwq5/jo26AuRmu/XN3GUXelZDKWe0adNNnvwSVhQWAfP7xD90YqyLS5mDCsAQhdOG4IRWRhlllPGfwh8BlRSIWAhVhAAAAABJRU5ErkJggg==">
 					</div>
-					<div class="namePlate">Software Engineer Steven Jones II</div>
+					<div class="namePlate">
+						<p><span id="softwareEngineer">Software Engineer Steven Jones II</span></p>
+					</div>
+
 				</div>
 				<button class="email" onclick="copyToClipboard()">
 					<input type="text" id="textToCopy" class="flexCenter" value="spj2nd@gmail.com">
@@ -32,8 +37,9 @@
 						<img
 							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACMUlEQVR4nO3Yu2uUQRQF8NWIL6yMprGJCKKNhRFMERArq4AgSWWZdIoiYm0lwc5G1FJQENG/IJUiNioIoiiCCllEkWB8hvj4yegNhLhustnZXQlzYIr95s695+x8c2bmq1QKCgoKCgoKCgo6Agzi4n/SBpsRchozuNfhNpO4NCukWukwUM0h5D26szJrjEN3cGhaSMJzbM/KcHH1t+JJcGhayBSe4Q32ZmVav3Y/3kbtqSxrBBtxC18xnJVx7boH8Rl30ZNrjfxe7FiDq/iOozmJz6t5DD9wA+viWT4h8XvFnHVzDisz8Z/NPVYrd3Yhc56P4Btuzv5rzQBrcS1m+0iN/tYIib4D+BDv8eYm7fU2Pv1r926pkOjfhYml2jO24SleY0+duNYKiZhePA6r7G8g9wDexdjeBWKrbTmiBKnkNF9waBHxw2HlaczAIuKr7ZiRIXzEI1wPcifqxJ/Cz7DXhzF2qGNC0IWzQSo5zoaw0DNhoefT3jPPmS5E31jErseVyJFydbVVCDZhPCz4ZCI1r38U03gRglJ7Ga/TaI18xyPXeMrdFiHow6tY3PvrjN2JS3gQLc3Gjjrx++I8l3L3tVQIDscZ6P5CTrPEeltiX0qzOZJdCFbNOT5czrGb16m5Jo4o4oq7OpeQSdyJf+mv97tV8OcYNB21J3NdrCYa2exyAbvDMLJcrNI1sycrw8Y49OS66i6bjw8zy+Fz0OCy+EBXUFBQUFBQUFBQaQa/ADu+sGJBVOWlAAAAAElFTkSuQmCC">
 					</div>
-					<div class="emailText infoText flexCenter">Email spj2nd@gmail.com
-					</div>
+					<span class="emailText infoText flexCenter">
+						<p><span id="email">Email spj2nd@gmail.com</span></p>
+					</span>
 				</button>
 				<button class="github"
 					onclick="redirectToWebsite('https://github.com/SPJII')">
@@ -41,7 +47,8 @@
 						<img
 							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEtUlEQVR4nO2ZbYhUVRjHJys3zV3d7EsghZoVJWnmrqalBGK2mWiaVlKbJBoYYUi4ZhaspeKui5lWC0YQ9CHqg+wHId8ylPWtdM3VjFQC/RT5tkKm5vzkcf9TZ2funZ259wxtNH+4zL3nufd5Oed5O2cSiSKKKKKI/z2APkAlMA14Wdc0jfXp0hMEPAw0AK1AknAY7RBQDwxLdAUANwBTgH2OkgeBNcAc4AlgpC67nwt8KENSxu4BJv2bRtwDbJMyvwO1wIA8vr8bWAqcFo/NNlZYrTOVmAlcAP6UAb1i8CoF3gcuAW3ADL/ahgteLLc4Agz2yPdB4Kh41/jiGybsbbnBt0BZAfj3Ar6RjJpCupPN1hagRGN9gfuAnjFd636gt55vUewlvbuZAvuC3KlUYyXAYc3eFRk4wfnmLuBxTcBM3d/p0KcCO4Gr4tFsWVC0MrnZeWCgzxS7TYH9d0wonaayzQbgDz2ba/ycpY4ckWui4P4a2KHnSof/ECWATb4MsTphWJo2Xq3xxxw3+0wusRd4x1wDGKPrOeBd4AetwgfO6k4Ur8lpMpZpfKIPQ/apTnRIscCLriHO+O058OzwDvBUiCGlqjO7fbQdhtoA2qOizYolpJ3XAvF6IID2nmgPxRHQIFfJqNiWqeQi6yML+IfXBiWTbgG0QdKhLo4A64kOhtAma6bmRxaQOetPhtBbw/TItRW3mViTJXaOATdGEtCRVw/gN8t4IfS10iX/IgyM0CzNCaD1E60hou5B8j5Viu8eQHtV8iqiMLaCZRgfQBsr2isxdE/naenacEcAbYJoz0RhbLs6wyOFzFgOzzrxzNhBAqNEq45jyE+q1N+rjbAq3CLaco+GNAF/KfZ26/eAWpWjcQxJuZa1IjdZz6O4GQ88qz7oF6N5MKKvWpxW8R6n/f0AyU61Q1OiMDdGhl/VcnwFrLNVABbq3rDIgyGfKyvVAm8BK4CP1IftlQ6G4XHS7ych9G7Adr3zRqpzzVNGiVIrYXIMQGPk9CsGP1qMpI3da3nfMXaXFGlWkeyeA1/roWY5XfKXwM1Z3rf3WiIZIQarNBOD9GwnI6iRm+7Maq1aDMM5YCuwWtvi14DXgSVyl2an5T8JvJBtNWmfOMPKOIYMc5moflzUWNLNIkC5lPpCxoTBDF6v1euRgw71+m5oZEPEaI/a+Ov5HXjeUcrS5Wxn61uq4nVe38xVBhonI09os1SZo+xyrX5zLCPEbJKUrnN2jJbfL2urGoSLQcqqk7XV2p5H922oim2IGG5WH3T9iFOBapgPvKTTw0aly84y0Mpc9hdAhVZvoxcjnFPBNhXAMgX4fudUpVGXpWPDiBzibl6Wd3oDx7V6/b0ZIuYzpPh32lSVqyieIhM9O2nZDatD6LeqDTJZU70a4QipkRJ2qlIeQLdVIQc+hsaA8ducVX3Tp+5hxiS1qRrqyxCLGdqzWrLgRqS5WZsyV71zrJO3IYq5Bh3ynSuYO2VRxrrhTVLqjPYTTXkY0qRvzup5o/fAzgfA09o/uPhYxbAKGK2rSltWo7nY5a1O+IB8vE7/WHX211uL6smQRFcG7X5foc1ZtS67H16IvyOKKKKIIhL/OVwDNuqPu7vBAaIAAAAASUVORK5CYII=">
 					</div>
-					<div class="githubText infoText flexCenter">Github SPJII</div>
+					<div class="githubText infoText flexCenter">
+						Github SPJII</div>
 				</button>
 				<button class="linkedin"
 					onclick="redirectToWebsite('https://www.linkedin.com/in/steven-jones-ii-2a93b4210/')">
@@ -58,7 +65,7 @@
 							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABeUlEQVR4nO2ZsUrEQBCGc82BgsUdh3DYeYiNIliopYU2FhaChYKVcO2BjYWVjYV4jYWY3tY3EBQ7cTtbU/gMFjbiJwcjhpBg4iab5ZgP/iabGfJnZ3aXJAgURVEUxSFAB5itWB0XRkKqJ3RlJAJ2K1Lk0oipML9RI2XMCLAHvADnQLNQUp9mBHiMNetSyvgacJyhrk9G7mJG5lLGT6SRk3oF1n0yciom3oBJi/ymbiNN4AsYWOY3tRkBesCNzMioVHaARuKeYcbm9wls1W4EWAY+Uh7wMhE3D/RTdAi0fDAylXFemvlnfqMbYhH0iJITtLTsm31f9o883EpMF3j3bfmdliW0n0MrEtOQQ6Y/y2/ZoEbsS2sDeJY3maWjRI428CBjT8CqDz2yCFzJ9SxtJ3JMABcyNort1W6kbFAj9qW1AFz/UVo/OoiV1tCr0gI2pWFNDp1JTAu496rZywY1UhCdEU9LKxqXj9hVE7owMh4/ehRFURQl+OUbb8kVYhHktA0AAAAASUVORK5CYII=">
 					</div>
 					<div class="downloadText infoText">
-						Download Resume
+						<p><span id="download">Download Resume</span></p>
 					</div>
 				</button>
 			</div>
@@ -136,7 +143,7 @@
           <span class="skillInfo3">My next goal is to create media queries and internationalization for the website to make it more user friendly and demonstrate my humanlanguage proficiency in spanish and japanese plus my skills in programming.</span>
           <div class="skill3n">
             <h2 id="skill3n">
-              What's Up Next</h1>
+              What's Comes Next</h1>
             </div>
         </div>
       </div>
@@ -148,13 +155,12 @@
       </div>
     </div>
       <div class="lang">
-      <button class="language" data-lang="en">English</button>
-      <button class="language" data-lang="es">Español</button>
-      <button class="language" data-lang="ja">日本語</button>
+		<button id="english">English</button>
+		<button id="spanish">Español</button>
+		<button id="japanese">日本語</button>
       </div>
     </div>
   </div>
   <script src="index.js"></script>
   <script src="i18n.js"></script>
-</body>
 </html>

@@ -739,9 +739,9 @@ input {
 }
 
 .language,
-.english,
-.japanese,
-.spanish {
+#english,
+#japanese,
+#spanish {
 	border-radius: 10px;
 	background: linear-gradient(145deg, #003658, #002d4a);
 	box-shadow: 2px 2px 0px #001522,
@@ -757,35 +757,35 @@ input {
 	transition: 0.2s;
 }
 
-.english {
+#english {
 	grid-area: english;
 	margin-right: 3.5px;
 	margin-left: 7px;
 }
 
-.spanish {
+#spanish {
 	grid-area: spanish;
 	margin-right: 3.5px;
 	margin-left: 3.5px;
 }
 
-.japanese {
+#japanese {
 	grid-area: japanese;
 	margin-right: 7px;
 	margin-left: 3.5px;
 }
 
-.language:hover,
-.english:hover,
-.japanese:hover,
-.spanish:hover {
+#language:hover,
+#english:hover,
+#japanese:hover,
+#spanish:hover {
 	transform: scale(1.01);
 	background: linear-gradient(145deg, #002a4d, #00304f);
 }
 
-.english:active,
-.japanese:active,
-.spanish:active {
+#english:active,
+#japanese:active,
+#spanish:active {
 	transform: scale(0.99);
 	background: linear-gradient(145deg, #003658, #002d4a);
 	box-shadow: 2px 2px 0px #001522,
