@@ -3,7 +3,7 @@ body {
 	color: white;
 	align-items: center;
 	justify-content: center;
-	height: 1000px;
+	height: 100vh;
 	margin: 0;
 	display: inline-block;
 	font-size: 1em;
@@ -20,11 +20,11 @@ canvas {
 
 .container {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr;
-	grid-auto-rows: 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: .5fr 1fr 1fr .5fr ;
 	gap: 0px 0px;
 	grid-auto-flow: row;
+	grid-area: canvas;
 	grid-template-areas:
 		"canvas canvas canvas"
 		"canvas canvas canvas"
@@ -34,34 +34,24 @@ canvas {
 	align-self: center
 }
 
-.container {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	grid-template-rows: 5rem 1fr 1fr 1fr 1fr;
-	gap: 0px 0px;
-	grid-auto-flow: row;
-	grid-area: canvas;
-}
-
 .main {
 	grid-area: 2 / 2 / 5 / 5;
 	border-radius: 20px;
 	background: #19557b;
-	height: 1010px;
-	width: 1200px;
+	height: 97vh;
+	width: 62vw;
 }
 
 .pic {
 	grid-area: 2 / 2 / 3 / 3;
 	box-shadow: 30px 30px 0px #0a2333,
 		-30px -30px 0px #2a7cb3;
-	margin: 15px;
-	margin-top: 60px;
-	margin-left: 60px;
+	margin: 2.5rem;
+	margin-left:3.5rem;
 	border-radius: 50%;
 	padding-right: 30px;
-	height: 250px;
-	width: 250px;
+	width: 14vw;
+	height: 14vw;
 	object-fit: cover;
 	background: linear-gradient(-45deg, #ff357a, #fff172);
 }
@@ -90,7 +80,8 @@ canvas {
 	grid-auto-flow: row;
 	grid-area: 3 / 2 / 5 / 3;
 	margin: 5px;
-	height: 600px;
+	height: 56vh;
+	width: 20vw;
 }
 
 
@@ -137,7 +128,8 @@ canvas {
 
 .name,
 .github,
-.phone,
+.email,
+.linkedin,
 .resume {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
@@ -156,6 +148,7 @@ canvas {
 
 	margin: 10px;
 	padding: 10px;
+	height: 8vh;
 
 }
 
@@ -366,7 +359,7 @@ input {
 	box-shadow: inset 2px 2px 0px #0a2333,
 		inset -2px -2px 0px #16496b;
 	margin: 5px;
-	height: 1000px;
+	height: 96vh;
 }
 
 .p1,
@@ -376,11 +369,10 @@ input {
 	box-shadow: 2px 2px 0px #10364f,
 		-2px -2px 0px #2274a7;
 	transition: transform 0.3s ease-in-out;
-	height: 290px;
-	margin-top: 0.1rem;
-	margin-bottom: 1rem;
-	margin-right: 0.5rem;
-	margin-left: 0.5rem;
+	height: 30vh;
+	margin-bottom: 0.5rem;
+	margin-right: 0.3rem;
+	margin-left: 0.3rem;
 	border-radius: 10px;
 }
 
@@ -394,6 +386,7 @@ input {
 		". . ."
 		"p1n p1n p1n";
 	grid-area: p1;
+	margin-left: 0.5rem;
 }
 
 /* Tooltip text */
@@ -404,8 +397,7 @@ input {
 .toolTip2,
 .toolTip3 {
 	visibility: hidden;
-	width: 255px;
-	height: 290px;
+	height:30vh;
 	background: linear-gradient(145deg, #247ab1, #2b92d3);
 	box-shadow: 2px 2px 0px #10364f,
 		-2px -2px 0px #40daff;
@@ -431,20 +423,19 @@ input {
 .p2 img,
 .p3 img {
 	height: 200px;
-	width: 250px;
-	margin-bottom: 20px;
+	width: 13vw;
+	margin-bottom: 1rem;
 	position: absolute;
 }
 
 .skill1 img,
 .skill2 img,
 .skill3 img {
-
-	width: 130px;
-	margin-left: 60px;
-	margin-right: 10px;
-	margin-top: 30px;
-	margin-bottom: 10px;
+	width: 7vw;
+	margin-left: 4rem;
+	margin-right: .1rem;
+	margin-top: 1rem;
+	margin-bottom: .1rem;
 	position: absolute;
 }
 
@@ -488,6 +479,7 @@ input {
 	background: linear-gradient(145deg, #1b5b84, #174d6f);
 	box-shadow: 2px 2px 0px #10364f,
 		-2px -2px 0px #2274a7;
+	margin-right: 0.5rem;
 }
 
 .p3:hover .toolTip3 {
@@ -543,9 +535,9 @@ input {
 	margin-right: 7px;
 	margin-left: 7px;
 	margin-top: 7px;
-	margin-bottom: 3.5px;
+	margin-bottom: 0.5rem;
 	font-size: 1.7em;
-	height: 340px;
+	height: 34vh;
 	text-align: center;
 }
 
@@ -604,15 +596,6 @@ input {
 		"skill1 skill2 skill3"
 		"skill1 skill2 skill3";
 	grid-area: skills;
-	border-radius: 10px;
-	background: linear-gradient(145deg, #1b5b84, #174d6f);
-	box-shadow: 2px 2px 0px #10364f,
-		-2px -2px 0px #2274a7;
-	margin-right: 0.5rem;
-	margin-left: 0.5rem;
-	margin-top: 0.5rem;
-	margin-bottom: 0.5rem;
-	height: 330px;
 }
 
 .skill1,
@@ -625,11 +608,10 @@ input {
 		-2px -2px 0px #2274a7;
 	text-align: justify;
 	transition: transform 0.3s ease-in-out;
-	height: 290px;
-	margin-top: 1.2rem;
+	height: 28.5vh;
 	margin-bottom: 0.5rem;
-	margin-right: 0.5rem;
-	margin-left: 0.5rem;
+	margin-right: 0.3rem;
+	margin-left: 0.3rem;
 }
 
 #skill1n,
@@ -656,6 +638,7 @@ input {
 		". . ."
 		"skill1n skill1n skill1n";
 	grid-area: skill1;
+	margin-left: 0.5rem;
 }
 
 .skill1:hover,
@@ -716,6 +699,7 @@ input {
 		". . ."
 		"skill3n skill3n skill3n";
 	grid-area: skill3;
+	margin-right: 0.5;
 }
 
 .skill3n {
