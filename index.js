@@ -62,6 +62,7 @@ function animateStars() {
 // Start the animation
 animateStars();
 
+// Military Time Clock
 function updateTime() {
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');
