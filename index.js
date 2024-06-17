@@ -84,8 +84,8 @@ document.addEventListener("DOMContentLoaded", function() {
     resumeButton.addEventListener("click", function() {
         // Create an anchor element
         var downloadLink = document.createElement("a");
-        downloadLink.href = "UC_Resume_SPJII.pdf"; // Replace with the path to your PDF file
-        downloadLink.download = "UC_Resume_SPJII.pdf"; // Specify the file name for download
+        downloadLink.href = "UC_Resume_SPJII_Fall_2024.pdf"; 
+        downloadLink.download = "UC_Resume_SPJII_Fall_2024.pdf"; // Specify the file name for download
         downloadLink.target = "_blank"; // Open the PDF file in a new tab
         document.body.appendChild(downloadLink);
         downloadLink.click(); // Simulate a click on the download link
